@@ -8,4 +8,7 @@ steps to install terraform aws|
 2. chmod +x tfsetup.sh
 3. ./tfsetup.sh
 
-4. 
+4. cd terraform/
+5. terraform init
+6. terraform plan
+7. terraform apply
