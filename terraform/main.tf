@@ -57,11 +57,12 @@ data "archive_file" "lambda_zip" {
 }
 
 resource "aws_lambda_function" "predict_wait_time" {
-  function_name = "predictWaitTime"
-  role          = aws_iam_role.lambda_exec_role.arn
-  handler       = "handler.lambda_handler"
-  runtime       = "python3.11"
-  filename      = "${path.module}/../lambda_function.zip"  # Zip your Lambda code first
+  function_name    = "predictWaitTime"
+  role             = aws_iam_role.lambda_exec_role.arn
+  handler          = "handler.lambda_handler"
+  runtime          = "python3.11"
+  filename         = data.archive_file.lambda_zip.output_path
+  source_code_hash = filebase64sha256(data.archive_file.lambda_zip.output_path)
 
   environment {
     variables = {
