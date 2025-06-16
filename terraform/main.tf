@@ -61,7 +61,7 @@ resource "aws_lambda_function" "predict_wait_time" {
   role          = aws_iam_role.lambda_exec_role.arn
   handler       = "handler.lambda_handler"
   runtime       = "python3.11"
-  filename      = "${path.module}/lambda_function.zip"  # Zip your Lambda code first
+  filename      = "${path.module}/../lambda_function.zip"  # Zip your Lambda code first
 
   environment {
     variables = {
