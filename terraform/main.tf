@@ -39,10 +39,10 @@ resource "random_id" "suffix" {
 resource "aws_dynamodb_table" "guest_flow" {
   name         = "MythicalGuestFlow"
   billing_mode = "PAY_PER_REQUEST"
-  hash_key     = "guest_id"
+  hash_key     = "ride_id"
 
   attribute {
-    name = "guest_id"
+    name = "ride_id"
     type = "S"
   }
 }
